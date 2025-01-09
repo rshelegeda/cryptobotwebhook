@@ -48,24 +48,24 @@ mongoose
 const bot = new TelegramBot(process.env.BOT_TOKEN);
 const webhookUrl = `${process.env.WEBHOOK_URL}bot${process.env.BOT_TOKEN}`;
 
-// (async () => {
-//   try {
-//     const response = await axios.post(
-//       `https://api.telegram.org/bot${process.env.BOT_TOKEN}/setWebhook`,
-//       { url: webhookUrl }
-//     );
-//     console.log('Webhook set successfully:', response.data);
-//   } catch (error) {
-//     console.error('Error setting webhook:', error.response?.data || error.message);
-//   }
-// })();
+(async () => {
+  try {
+    const response = await axios.post(
+      `https://api.telegram.org/bot${process.env.BOT_TOKEN}/setWebhook`,
+      { url: webhookUrl }
+    );
+    console.log('Webhook set successfully:', response.data);
+  } catch (error) {
+    console.error('Error setting webhook:', error.response?.data || error.message);
+  }
+})();
 
 
 // Устанавливаем вебхук
-bot
-  .setWebHook(webhookUrl)
-  .then(() => console.log("Webhook set successfully"))
-  .catch((err) => console.error("Error setting webhook:", err));
+// bot
+//   .setWebHook(webhookUrl)
+//   .then(() => console.log("Webhook set successfully"))
+//   .catch((err) => console.error("Error setting webhook:", err));
 
 // Обработка обновлений от Telegram
 app.post(`/bot${process.env.BOT_TOKEN}`, (req, res) => {
