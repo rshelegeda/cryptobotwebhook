@@ -46,7 +46,19 @@ mongoose
 
 // Инициализация бота
 const bot = new TelegramBot(process.env.BOT_TOKEN);
-const webhookUrl = `${process.env.WEBHOOK_URL}/bot${process.env.BOT_TOKEN}`;
+const webhookUrl = `${process.env.WEBHOOK_URL}bot${process.env.BOT_TOKEN}`;
+(async () => {
+  try {
+    const response = await axios.post(
+      `https://api.telegram.org/bot${process.env.BOT_TOKEN}/setWebhook`,
+      { url: webhookUrl }
+    );
+    console.log('Webhook set successfully:', response.data);
+  } catch (error) {
+    console.error('Error setting webhook:', error.response?.data || error.message);
+  }
+})();
+
 
 // Устанавливаем вебхук
 bot
