@@ -6,7 +6,7 @@ const User = require("./models/User");
 const messages = require("./localization");
 const express = require("express");
 const bodyParser = require("body-parser");
-require("dotenv").config();
+// require("dotenv").config();
 
 const {
   generateButtons,
