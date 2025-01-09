@@ -18,6 +18,7 @@ const {
 const defaultPairs = require("./defaultPairs");
 
 const app = express();
+app.get("/", (req, res) => res.send("Bot is running"));
 app.use(bodyParser.json());
 
 const userRequestTimestamps = {};
