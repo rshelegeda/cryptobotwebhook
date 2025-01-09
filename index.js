@@ -38,7 +38,8 @@ function isRequestAllowed(userId) {
   return true;
 }
 
-// Настраиваем MongoDB
+// Настраиваем MongoDB ////
+
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => console.log("Connected to MongoDB Atlas"))
